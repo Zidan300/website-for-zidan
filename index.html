@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>𝖅𝖎𝖉𝖆𝖓 𝕿𝖍𝖆𝖕𝖆𝖑𝖎𝖞𝖆 </title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link rel="icon" type="z logo.png" href="king.png" />
+  <style>
+    .glass-box {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+    .flower {
+      position: fixed;
+      width: 100px;
+      height: 100px;
+      pointer-events: none;
+      z-index: 9999;
+      will-change: transform, opacity;
+    }
+    /* Contact Section White Gradient Overlay */
+    #contact > .relative > div {
+      position: relative;
+      overflow: hidden;
+    }
+
+    #contact > .relative > div::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        270deg,
+        rgba(255, 255, 255, 0.15),
+        rgba(255, 255, 255, 0.35),
+        rgba(255, 255, 255, 0.15)
+      );
+      background-size: 400% 400%;
+      animation: whiteGradientShift 4s ease infinite;
+      pointer-events: none;
+      border-radius: inherit;
+      z-index: 0;
+    }
+
+    #contact > .relative > div > * {
+      position: relative;
+      z-index: 1; /* keep content above the overlay */
+    }
+
+    @keyframes whiteGradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    .about-box {
+      transition: transform 0.3s ease;
+    }
+    .about-box:hover {
+      transform: scale(1.05);
+    }
+    .profile-pic-container {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .profile-pic-container:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 100% 50%;
+      }
+    }
+    .gradient-text {
+      background: linear-gradient(270deg, #000000, #ffffff);
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 2s linear infinite, zoomInOut 2s ease-in-out infinite;
+    }
+    .resume-button {
+      font-family: 'Great Vibes', cursive;
+      background-color: transparent;
+      border: 2px solid #ffffff;
+      color: transparent;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      padding: 0.5rem 1.5rem;
+      border-radius: 9999px; /* fully rounded */
+      transition: background-color 0.3s, color 0.3s;
+      text-decoration: none;
+    }
+
+    .resume-button:hover {
+      background-color: #ffffff;
+      color: #4f46e5; /* a nice purple */
+    }
+    @keyframes bgGradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    .animated-gradient-bg {
+      background: linear-gradient(270deg, #f0f0f0, #ffffff, #f0f0f0);
+      background-size: 600% 600%;
+      animation: bgGradientShift 30s ease infinite;
+    }
+    @keyframes boxGradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    .animated-gradient-box {
+      width: 100%;
+      max-width: 80rem; /* about 1280px */
+      padding: 2.5rem; /* 10 */
+      border-radius: 1.5rem; /* 3xl */
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(156, 163, 175, 0.5); /* gray-400 with opacity */
+      background: linear-gradient(270deg, #e0e0e0, #ffffff, #e0e0e0);
+      background-size: 600% 600%;
+      animation: boxGradientShift 15s ease infinite;
+      color: #ffffff; /* dark text for contrast */
+    }
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    .fade-in-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in-delay-1 {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease-out 0.5s forwards;
+    }
+
+    .fade-in-delay-2 {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease-out 1s forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .certificate-slot {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      position: absolute;
+    }
+    .certificate-slot.visible {
+      opacity: 1;
+      position: relative;
+    }
+    @keyframes blackWhiteGradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 100% 50%;
+      }
+    }
+    .gradient-black-white-text {
+      background: linear-gradient(270deg, #ff00cc, #fff6f6, #ff00cc);
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: blackWhiteGradientShift 2s linear infinite;
+    }
+    .gradient-white-pink-text {
+      background: linear-gradient(270deg, #ffffff, #00ffff, #ffffff);
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: blackWhiteGradientShift 2s linear infinite;
+    }
+    .shiny-gradient-box {
+      background: linear-gradient(270deg, #ffffff, #ffffff62, #fbfbfb9f);
+      background-size: 400% 400%;
+      animation: shinyBoxShift 7s ease infinite;
+    }
+
+    @keyframes shinyBoxShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Zoom in/out animation for gradient and bright white text */
+    @keyframes zoomInOut {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    .gradient-text, .bright-white-text {
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+      animation-name: zoomInOut;
+      animation-duration: 2s;
+    }
+
+    .music-box {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: border 0.4s ease, transform 0.3s ease;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .music-box:hover {
+      border: 1px solid #ff69b4; /* shiny pink */
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="bg-white text-blue-600 font-sans overflow-x-hidden">
+
+  <!-- Navigation Bar -->
+<header class="bg-white bg-opacity-20 backdrop-blur-md shadow-md fixed top-0 w-full z-50 border-b border-white/30">
+  <nav class="max-w-7xl mx-auto flex items-center px-6 py-4">
+    <!-- Logo Left -->
+<a href="https://www.tiktok.com/@bingbangboom24.7?_t=ZS-8yfPNBfvspu&_r=1" target="_blank" class="text-2xl font-bold text-white" style="font-family: 'Great Vibes', cursive;">
+  Zidan Thapaliya
+</a>
+
+    <!-- Nav Links Right -->
+    <div class="flex ml-auto items-center space-x-6">
+      <ul class="flex space-x-6 text-gray-100 font-semibold text-lg" style="font-family: 'Great Vibes', cursive;">
+        <li><a href="#home" class="text-white hover:text-[#00f4f0] transition">Home</a></li>
+        <li><a href="#about" class="text-white hover:text-[#00f4f0] transition">About</a></li>
+        <li><a href="#projects" class="text-white hover:text-[#00f4f0] transition">Projects</a></li>
+        <li><a href="#certificate" class="text-white hover:text-[#00f4f0] transition">Certificates</a></li>
+        <li><a href="#contact" class="text-white hover:text-[#00f4f0] transition">Contact</a></li>
+      </ul>
+
+      <!-- Resume Download Button -->
+ <div class="px-4 py-2 border border-white rounded-full bg-white bg-opacity-10 transition hover:bg-opacity-30">
+  <a href="resume.pdf" download class="text-white hover:text-[#00f4f0] transition-colors duration-300" style="font-family: 'Great Vibes', cursive;">
+    Download Resume
+  </a>
+</div>
+    </div>
+  </nav>
+</header>
+
+  <!-- Hero Section with Live Video Background -->
+<section id="home" class="relative min-h-screen flex flex-col justify-center items-center text-center p-8 overflow-hidden">
+
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+    <source src="12716-241674181_small.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+
+<div class="relative z-10 text-center" style="font-family: 'Great Vibes', cursive;">
+  <style>
+  .glassy-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .glassy-text h1, .glassy-text p {
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+    font-family: 'Great Vibes', cursive;
+    font-weight: normal;
+    letter-spacing: normal;
+  }
+  .glassy-text h1 {
+    font-size: 6rem;
+    margin-bottom: 1rem;
+  }
+  .glassy-text p {
+    font-size: 1.25rem;
+    margin-bottom: 2.25rem;
+  }
+  .glassy-gradient {
+    background: linear-gradient(270deg, #000000, #ffffff);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 0.001s linear infinite;
+  }
+  .welcome-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6rem;
+    height: 4rem;
+    border: 2px solid rgba(255, 255, 255, 0.4); /* semi-transparent white */
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1); /* subtle glassy background */
+    backdrop-filter: blur(8px); /* glassmorphism effect */
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff;
+    text-decoration: none;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+  }
+  .welcome-button:hover {
+    border-color: #00f4f0;
+  }
+</style>
+<div class="glassy-text">
+  <h1 class="gradient-text">Zidan Thapaliya</h1>
+  
+  <a href="#abo" class="welcome-button">Welcome</a>
+</div>
+</section>
+
+<div class="w-full h-2 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 animate-gradient-x"></div>
+
+  <!-- About Section -->
+   
+ <section id="about" class="fade-in-section relative animated-gradient-bg min-h-screen rounded-xl w-full px-20 py-20 text-gray-800 flex flex-col justify-center items-center text-center overflow-hidden">
+  <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+    <source src="lines.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <div class="relative z-10">
+    <div class="animated-gradient-box about-box">
+      <h2 class="text-4xl font-bold mb-8 gradient-pink-blue-text">About Me</h2>
+      <div class="w-full h-px bg-white mb-8"></div>
+      <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+        <div class="bg-white bg-opacity-60 p-6 rounded-xl shadow-md border border-gray-300 w-80 h-80 flex items-center justify-center overflow-hidden fade-in-delay-1 profile-pic-container">
+          <img src="zidanphoto.jpg" alt="Profile Picture" class="w-full h-full object-cover rounded-xl" />
+        </div>
+        <p class="text-xl leading-relaxed text-white text-left max-w-xl fade-in-delay-2">
+Hi, I’m Zidan Thapaliya. I am involved in game development, songwriting, web development, and gaming. I enjoy making games that people can play and have fun with. Writing songs is another way I express my creativity.
+
+I also build websites and love learning new technologies to make them better. When I’m not working, I spend time playing games to relax.
+
+I am always excited to learn more and improve my skills in these areas.
+
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+<div class="w-full h-4 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 rounded-none"></div>
+
+  <!-- Projects Section -->
+<section id="projects" class="fade-in-section animated-gradient-bg min-h-screen py-20 px-20 rounded-xl w-full text-white flex flex-col justify-center items-center text-center relative overflow-hidden">
+  <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+    <source src="84086-584871133_small.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <div class="relative z-10">
+    <h2 class="text-3xl font-bold mb-8 gradient-white-pink-text">Projects</h2>
+    <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl w-full mx-auto">
+      <div class="music-box w-full md:w-96 h-48 flex flex-col justify-center items-center">
+        <p class="text-white font-semibold mb-2" style="font-family: 'Great Vibes', cursive; font-size: 1.5rem;">Burn in it</p>
+        <audio controls class="w-full">
+          <source src="If you were fire I will burn in it .mp3" type="audio/mp3">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div class="music-box w-full md:w-96 h-48 flex flex-col justify-center items-center">
+        <p class="text-white font-semibold mb-2" style="font-family: 'Great Vibes', cursive; font-size: 1.5rem;">Hold me</p>
+        <audio controls class="w-full">
+          <source src="𝐻𝑜𝓁𝒹 𝑀𝑒 [BEezRE_xnmQ].mp3" type="audio/mp3">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div class="music-box w-full md:w-96 h-48 flex flex-col justify-center items-center">
+        <p class="text-white font-semibold mb-2" style="font-family: 'Great Vibes', cursive; font-size: 1.5rem;">Pirates</p>
+        <audio controls class="w-full">
+          <source src= "symphony.mp3" type="audio/mp3">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div class="music-box w-full md:w-96 h-48 flex flex-col justify-center items-center">
+        <p class="text-white font-semibold mb-2" style="font-family: 'Great Vibes', cursive; font-size: 1.5rem;">Bring you home</p>
+        <audio controls class="w-full">
+          <source src="𝐵𝓇𝒾𝓃𝑔 𝒴𝑜𝓊 𝐻𝑜𝓂𝑒 [UsH2UZ2rRJ4].mp3" type="audio/mp3">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div class="music-box w-full md:w-96 h-48 flex flex-col justify-center items-center">
+        <p class="text-white font-semibold mb-2" style="font-family: 'Great Vibes', cursive; font-size: 1.5rem;">All Alone</p>
+        <audio controls class="w-full">
+          <source src="all alone.mp3" type="audio/mp3">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div class="music-box w-full md:w-96 h-48 flex flex-col justify-center items-center">
+        <p class="text-white font-semibold mb-2" style="font-family: 'Great Vibes', cursive; font-size: 1.5rem;">Rainfall</p>
+        <audio controls class="w-full">
+          <source src="love for you.mp3" type="audio/mp3">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <div class="w-full h-4 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 rounded-none"></div>
+
+  <!-- Certificate Section -->
+  <section id="certificate" class="fade-in-section animated-gradient-bg min-h-screen py-20 px-20 rounded-xl w-full flex flex-col justify-center items-center text-center relative overflow-hidden">
+    <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+      <source src="graydent.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="relative z-10 w-full flex flex-col justify-center items-center text-center">
+      <div class="bg-white bg-opacity-10 rounded-2xl border border-white border-opacity-30 shadow-xl px-8 py-4 mb-8" style="backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);">
+        <h2 class="text-5xl font-bold gradient-black-white-text">Certificates</h2>
+      </div>
+      <div class="h-1 w-48 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 animate-gradient-x mb-8 rounded-full"></div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div>
+          <a href="certificate.pdf" target="_blank" class="bg-white bg-opacity-20 backdrop-blur-lg border border-gray-300 p-8 rounded-xl shadow-md transform transition duration-300 hover:scale-105 w-72 h-72 flex items-center justify-center">
+            <img src="Screenshot 2025-08-05 at 19.05.48.png" alt="Certificate 1" class="w-full h-full object-contain rounded-lg">
+          </a>
+        </div>
+        <div>
+          <a href="certificate2.pdf" target="_blank" class="bg-white bg-opacity-20 backdrop-blur-lg border border-gray-300 p-8 rounded-xl shadow-md transform transition duration-300 hover:scale-105 w-72 h-72 flex items-center justify-center">
+            <img src="cert-2.png" alt="Certificate 2" class="w-full h-full object-contain rounded-lg">
+          </a>
+        </div>
+        <div>
+          <a href="certificate3.pdf" target="_blank" class="bg-white bg-opacity-20 backdrop-blur-lg border border-gray-300 p-8 rounded-xl shadow-md transform transition duration-300 hover:scale-105 w-72 h-72 flex items-center justify-center">
+            <img src="cert-3.png" alt="Certificate 3" class="w-full h-full object-contain rounded-lg">
+          </a>
+        </div>
+        <div>
+          <a href="certificate 4.pdf" target="_blank" class="bg-white bg-opacity-20 backdrop-blur-lg border border-gray-300 p-8 rounded-xl shadow-md transform transition duration-300 hover:scale-105 w-72 h-72 flex items-center justify-center">
+            <img src="cert-4.png" alt="Certificate 4" class="w-full h-full object-contain rounded-lg">
+          </a>
+        </div>
+        <div>
+          <a href="certificate 5.pdf" target="_blank" class="bg-white bg-opacity-20 backdrop-blur-lg border border-gray-300 p-8 rounded-xl shadow-md transform transition duration-300 hover:scale-105 w-72 h-72 flex items-center justify-center">
+            <img src="cert-5.png" alt="Certificate 5" class="w-full h-full object-contain rounded-lg">
+          </a>
+        </div>
+        <div>
+          <a href="certificate 6.pdf" target="_blank" class="bg-white bg-opacity-20 backdrop-blur-lg border border-gray-300 p-8 rounded-xl shadow-md transform transition duration-300 hover:scale-105 w-72 h-72 flex items-center justify-center">
+            <img src="cert-6.png" alt="Certificate 6" class="w-full h-full object-contain rounded-lg">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="w-full h-4 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 rounded-none"></div>
+
+  <!-- Contact Section -->
+  <section id="contact" class="fade-in-section animated-gradient-bg min-h-screen py-20 px-20 w-full rounded-xl text-gray-800 flex flex-col justify-center items-center text-center relative overflow-hidden">
+    <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+      <source src="conclusion.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="relative z-10">
+     <h2 class="text-7xl font-bold mb-6 text-white" style="font-family: 'Great Vibes', cursive; text-shadow: 0 0 2px rgb(255, 255, 255), 0 0 14px white, 0 0 2px rgb(0, 0, 0);">Contact</h2>
+      <div class="p-24 max-w-7xl w-full min-h-[1100px] rounded-lg shadow-lg transform transition duration-500 hover:scale-105 bg-transparent space-y-8" style="backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 0.5px solid rgba(255,255,255,0.6);">
+        <div>
+
+         <a href="mailto:thapaliyazidan00@gmail.com" target="_blank" class="rounded-xl p-4 bg-white bg-opacity-80 backdrop-blur-sm transition transform hover:scale-105 hover:bg-green-600 cursor-pointer inline-block flex items-center justify-center space-x-3 text-green-600 hover:text-white text-lg shadow-inner">
+            <img src="https://www.gstatic.com/images/branding/product/1x/gmail_48dp.png" alt="Gmail" class="w-6 h-6">
+            <span>thapaliyazidan00@gmail.com</span>
+          </a>
+        </div>
+       <a href="tel:9803390209" class="rounded-xl p-4 bg-white bg-opacity-80 backdrop-blur-sm transition transform hover:scale-105 hover:bg-green-600 cursor-pointer inline-block flex items-center justify-center space-x-3 text-green-600 hover:text-white text-lg shadow-inner">
+         <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Call" class="w-6 h-6">
+         <span>9803390209</span>
+       </a>
+    <div class="flex justify-center space-x-6 mt-6">
+      <a href="https://www.facebook.com/zidan.thapaliya.3/" target="_blank" class="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center shadow-lg transition transform hover:scale-125 hover:bg-blue-800">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/facebook-new.png" alt="Facebook" class="w-6 h-6">
+      </a>
+      <a href="https://wa.me/9779803390209" target="_blank" class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg transition transform hover:scale-125 hover:bg-green-700">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp" class="w-6 h-6">
+      </a>
+      <a href="https://instagram.com" target="_blank" class="w-14 h-14 bg-gradient-to-r from-pink-400 via-red-400 to-pink-500 rounded-full flex items-center justify-center shadow-lg transition transform hover:scale-125 hover:brightness-125">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram" class="w-6 h-6">
+      </a>
+    </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+
+          // Play sound on fade-in if not already played
+          if (!entry.target.dataset.played) {
+            const audio = new Audio('fadein-sound.mp3'); // Replace with your actual sound file path
+            audio.play();
+            entry.target.dataset.played = 'true';
+          }
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.fade-in-section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const links = document.querySelectorAll('nav a');
+      links.forEach(link => {
+        link.addEventListener('click', (e) => {
+          const targetId = link.getAttribute('href').substring(1);
+          const targetSection = document.getElementById(targetId);
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+    });
+  </script>
+  <script>
+    // Flower animation logic: falling flowers like rain
+    const welcomeBtn = document.querySelector('.welcome-button');
+
+welcomeBtn.addEventListener('click', () => {
+  const flowerImages = ['blue.png', 'orange.png', 'flower.png']; // Add your actual image file names
+
+  for (let i = 0; i < 30; i++) {
+    const delay = Math.random() * 2000; // random initial delay
+    const interval = Math.random() * 1000 + 500; // random duration for fall
+
+    setTimeout(() => {
+      const flower = document.createElement('img');
+      flower.src = flowerImages[Math.floor(Math.random() * flowerImages.length)];
+      flower.classList.add('flower');
+      flower.style.position = 'fixed';
+      flower.style.left = `${Math.random() * window.innerWidth}px`;
+      flower.style.top = `-100px`;
+      flower.style.zIndex = 9999;
+      document.body.appendChild(flower);
+
+      const fallDistance = window.innerHeight + 200;
+
+      flower.animate([
+        { transform: 'translateY(0)', opacity: 1 },
+        { transform: `translateY(${fallDistance}px)`, opacity: 0 }
+      ], {
+        duration: interval + 3000,
+        easing: 'ease-in',
+        fill: 'forwards'
+      });
+
+      setTimeout(() => {
+        flower.remove();
+      }, interval + 3000);
+    }, delay);
+  }
+});
+  </script>
+</script>
+<script>
+  const tapSound = new Audio('mouse-tap-single-studio-vocal-hd-379364.mp3');
+
+  document.addEventListener('click', (event) => {
+    const target = event.target;
+    if (
+      target.tagName === 'BUTTON' ||
+      (target.tagName === 'A' && target.href) ||
+      target.closest('button') || 
+      target.closest('a[href]')
+    ) {
+      tapSound.currentTime = 0;
+      tapSound.play();
+    }
+  });
+</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const audios = document.querySelectorAll('audio');
+      audios.forEach(audio => {
+        audio.addEventListener('play', () => {
+          audios.forEach(otherAudio => {
+            if (otherAudio !== audio) {
+              otherAudio.pause();
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda&display=swap" rel="stylesheet" />

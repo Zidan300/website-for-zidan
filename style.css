@@ -1,0 +1,391 @@
+/* Fade-in animation */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1.5s ease-out forwards;
+}
+
+h1, h2, h3 {
+  font-family: 'Bodoni Moda', serif;
+}
+
+.glassy-text h1, .glassy-text p {
+  color: #ffffff;
+  font-family: 'Great Vibes', cursive;
+}
+
+.gradient-text:hover {
+  animation-play-state: paused !important; /* stop the gradient animation */
+  color: #00f4f0 !important; /* change text color */
+  -webkit-text-fill-color: #00f4f0 !important; /* for webkit */
+  background: none !important; /* remove background gradient */
+}
+
+@keyframes bgGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient-bg {
+  background: linear-gradient(270deg, #f0f0f0, #ffffff, #f0f0f0);
+  background-size: 600% 600%;
+  animation: bgGradientShift 30s ease infinite;
+}
+
+.about-box {
+  transition: transform 0.3s ease;
+}
+.about-box:hover {
+  transform: scale(1.05);
+}
+
+@keyframes boxGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Glassy effect for About Me box */
+.animated-gradient-box {
+  width: 100%;
+  max-width: 80rem;
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);   /* subtle white border */
+  background: rgba(255, 255, 255, 0.15);          /* translucent white */
+  backdrop-filter: blur(10px);                     /* blur behind */
+  -webkit-backdrop-filter: blur(10px);
+  color: #333333;
+  transition: background 0.3s ease;
+  animation: boxGradientShift 15s ease infinite;   /* keep gradient animation if desired */
+}
+
+.gradient-pink-text {
+  background: linear-gradient(270deg, #ec4899, #f9a8d4);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShiftPink 3s ease infinite;
+}
+
+.gradient-pink-blue-text {
+  background: linear-gradient(270deg, #ec4899, #3b82f6);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShiftPinkBlue 3s ease infinite;
+}
+
+@keyframes gradientShiftPinkBlue {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.about-heading {
+  position: relative;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+.about-heading::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  max-width: 100%;
+  height: 3px;
+  bottom: -8px;
+  left: 0;
+  background-color: #ec4899;
+  transition: width 0.3s ease;
+  display: inline-block;
+}
+
+.about-heading:hover::after {
+  width: 100%;
+  max-width: 100%;
+}
+
+.about-inner-box {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  max-width: 800px;
+  width: 100%;
+}
+
+/* Gradient animation for horizontal gradient lines */
+@keyframes gradient-x {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 5s linear infinite;
+}
+
+.gradient-text {
+  animation: gradientShift 0.5s ease-in-out infinite;
+}
+
+.resume-button {
+  font-family: 'Great Vibes', cursive;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.resume-button:hover {
+  background-color: #ffffff;
+  color: #4f46e5;
+  border-color: #4f46e5;
+}
+
+nav ul li a:hover {
+  color: #00f4f0 !important;
+}
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-delay-1 {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-out 0.5s forwards;
+}
+
+.fade-in-delay-2 {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-out 1s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+.animated-gradient-box {
+  width: 100%;
+  max-width: 80rem; /* about 1280px */
+  padding: 4rem 2.5rem; /* increase vertical padding for height */
+  border-radius: 1.5rem; /* 3xl */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25); /* subtle white border */
+  background: rgba(255, 255, 255, 0.15); /* semi-transparent */
+  backdrop-filter: blur(10px); /* blurry background */
+  -webkit-backdrop-filter: blur(10px);
+  color: #ffffff; /* white text */
+  transition: background 0.3s ease;
+  background-image: none !important;
+  animation: none !important;
+}
+
+.page-section {
+  display: none;
+}
+.page-section.show {
+  display: block;
+}
+
+.loading-bar-container {
+  width: 100px;
+  height: 6px;
+  background: white;
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 8px auto 0 auto; /* center and some margin top */
+  position: relative;
+}
+
+.loading-bar-container {
+  width: 100px;
+  height: 6px;
+  background: white;
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 8px auto 0 auto; /* center and some margin top */
+  position: relative;
+}
+
+.loading-bar {
+  height: 100%;
+  width: 150%; /* wider for smooth animation */
+  background: repeating-linear-gradient(
+    45deg,
+    red,
+    red 10px,
+    white 10px,
+    white 20px
+  );
+  animation: rotate-stripes 2s linear infinite;
+  border-radius: 7px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@keyframes rotate-stripes {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes zoomInOut {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.gradient-text, .bright-white-text {
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-name: zoomInOut;
+  animation-duration: 3s;
+}
+
+
+/* --- Audio Player for Welcome Tune --- */
+
+#welcome-audio {
+  display: none;
+}
+.gradient-rainbow-text {
+  background: linear-gradient(to right, #ff0057, #ff7c00, #ffea00, #00f4f0, #3b82f6, #a855f7);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShiftRainbow 5s ease infinite;
+}
+
+@keyframes gradientShiftRainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 2. Glow on hover */
+.glow-hover:hover {
+  box-shadow: 0 0 12px #00ffff, 0 0 24px #00ffff;
+  border-color: #00ffff;
+}
+
+/* 3. Pulsing effect */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 0px rgba(255, 255, 255, 0.5);
+  }
+}
+
+.pulsing {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* 4. Background shine animation */
+@keyframes shine {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.shiny-bg {
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  background-size: 400% 100%;
+  animation: shine 2s linear infinite;
+}
+
+/* 5. Smooth fade + scale entrance */
+.fade-in-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeInScale 0.8s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
